@@ -1,0 +1,66 @@
+{
+    "js": {
+        "isReply": true,
+        "totalWeight":145,
+        "reply":[
+            {
+                "message":"js c'est un langage de merde",
+                "weight":20
+            },
+            {
+                "message":"arretez de coder avec cette daube serieux",
+                "weight":20
+            },
+            {
+                "message":"Coder en JavaScript, c'est comme assembler des meubles IKEA – vous n'êtes jamais tout à fait sûr que vous avez fait les choses correctement jusqu'à ce que tout s'effondre.",
+                "weight":20
+            },
+            {
+                "message":"Déboguer JavaScript, c'est un peu comme chercher un chat noir dans une pièce sombre, surtout quand il n'y a ni chat ni pièce.",
+                "weight":20
+            },
+            {
+                "message":"JavaScript : parce que parfois, vous voulez simplement ajouter une pincée de chaos à votre code.",
+                "weight":20
+            },
+            {
+                "message":"Coder en JavaScript, c'est un peu comme jouer à la roulette russe avec un chargeur plein.",
+                "weight":20
+            },
+            {
+                "message":"JS c'est vraiment un des pires languages de l'univers, genre vraiment, respectez vous, changez de language",
+                "weight":20
+            },
+            {
+                "message":"JS c'est juste un language de merde",
+                "weight":5
+            }
+        ]
+    },
+    "mdr":{
+        "isReply": false,
+        "totalWeight":5,
+        "reply":[
+            {
+                "message":"😂",
+                "weight":1
+            },
+            {
+                "message":"🤣",
+                "weight":1
+            },
+            {
+                "message":"😀",
+                "weight":1
+            },
+            {
+                "message":"😐",
+                "weight":1
+            },
+            {
+                "message":"😬",
+                "weight":1
+            }
+        ]
+    }
+}

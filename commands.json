@@ -1,0 +1,25 @@
+[
+    {
+        "name":"hi",
+        "description":"hello world !",
+        "args":[]
+    },
+    {
+        "name":"emulaterole",
+        "description":"emulate si l'ajout de role fonctionne mdr",
+        "args":[
+            {
+                "name":"personne",
+                "type":"mention",
+                "description":"la personne qui va souffrir",
+                "needed":true
+            },
+            {
+                "name":"role",
+                "type":"role",
+                "description":"le role qu'on lui colle sur la geule",
+                "needed":true
+            }
+        ]
+    }
+]
