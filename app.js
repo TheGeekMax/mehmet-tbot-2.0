@@ -2,9 +2,12 @@
 const Discord = require('discord.js');
 const config = require('./config.json');
 const keywords = require('./keywords.json');
+const fs = require('fs');
+const { parse } = require('csv-parse');
 
 //discord , commands 
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder} = require('discord.js');
 const { Routes } = require('discord-api-types/v9');
 const { REST } = require('@discordjs/rest');
 
@@ -174,6 +177,10 @@ function isValidText(text,tofind){
     return text.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g," ").split(" ").includes(tofind);
 }
 
+function getIdFromName(tag) {
+    const user = client.users.cache.find((u) => u.tag === tag);
+    return user ? user.id : null;
+}
 
 //commandes
 async function hi(int, args){
@@ -189,6 +196,43 @@ function emulaterole(int, args){
     }
     addRoleToClient(int.member,int.guild.roles.cache.get(args.role));
     int.reply("ca marche\nhttps://tenor.com/6ECe.gif")
+}
+
+
+
+function anniv_list(int,args){
+
+    fs.readFile('birth.csv', (err, fileData) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+
+        parse(fileData, {columns: false, trim: true}, (err, rows) => {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            //on l'imprime
+            console.log(rows);
+            //on formate via un embed
+            let embed = new EmbedBuilder()
+                .setTitle("Liste des anniversaires")
+                .setDescription("Voici la liste des anniversaires")
+                .setColor("#ff0000");
+
+            for(let i = 1 ; i < rows.length;i++){
+                embed.addFields({
+                    name:rows[i][1] + " <@"+rows[i][2]+">",
+                    value:rows[i][3].replace("-","/"),
+                    inline:false
+                });
+            }
+
+            int.reply({embeds:[embed]});
+        });
+    });
+
 }
 
 function rand(int, args){

@@ -21,5 +21,10 @@
                 "needed":true
             }
         ]
+    },
+    {
+        "name":"anniv_list",
+        "description":"liste les anniversaires",
+        "args":[]
     }
 ]

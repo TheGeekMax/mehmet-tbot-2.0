@@ -57,3 +57,5 @@ function showKeyword(keywordName){
 
     return keyword;
 }
+
+//fonctions relative a l'ajout et la modification de mots clés
