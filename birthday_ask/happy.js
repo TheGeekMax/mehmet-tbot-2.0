@@ -4,6 +4,8 @@ const Discord = require('discord.js');
 const fs = require('fs');
 const { parse } = require('csv-parse');
 const { EmbedBuilder} = require('discord.js');
+//cron
+const cron = require('node-cron');
 
 let rights = [];
 for(let i = 0 ; i < config.droit.length;i++){
@@ -25,7 +27,15 @@ function getIdFromName(tag) {
 client.on('ready', async () => {
     console.log(`Logged in as ${client.user.tag}!`);
 
+    //on envoie le message tous les jours à 8h
+    cron.schedule('0 8 * * *', () => {
+        sendBirth();
+    });
 
+});
+
+
+function sendBirth(){
     fs.readFile('../birth.csv', async (err, fileData) => {
         if (err) {
             console.error(err);
@@ -58,15 +68,11 @@ client.on('ready', async () => {
             if(qts == 0){
                 mess += "> personne ...\n";
             }
-
             //on envoie test dans le salon d'id config.salonBirth
             client.channels.cache.get(config.salonBirth).send(mess).then((message) => {
                 //on stop le programme
                 process.exit(0);
             });
         });
-    });    
-
-});
-
-
+    });
+}
