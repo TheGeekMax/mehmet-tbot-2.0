@@ -223,8 +223,7 @@ function anniv_list(int,args){
 
             for(let i = 1 ; i < rows.length;i++){
                 embed.addFields({
-                    name:rows[i][1] + " <@"+rows[i][2]+">",
-                    value:rows[i][3].replace("-","/"),
+                    name:rows[i][1] + " le " + rows[i][3].replace("-","/"),
                     inline:false
                 });
             }

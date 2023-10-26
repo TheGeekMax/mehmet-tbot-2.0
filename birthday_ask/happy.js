@@ -66,7 +66,7 @@ function sendBirth(){
             }
 
             if(qts == 0){
-                mess += "> personne ...\n";
+                return;
             }
             //on envoie test dans le salon d'id config.salonBirth
             client.channels.cache.get(config.salonBirth).send(mess).then((message) => {
